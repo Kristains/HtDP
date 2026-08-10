@@ -1,5 +1,5 @@
 #lang racket 
-(requirt 2htdp/image)
+(require 2htdp/image)
 ;; P26 [习题5]
 (define (leaves size)
   (triangle size "solid" "green")

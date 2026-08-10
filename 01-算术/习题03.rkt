@@ -1,5 +1,5 @@
 #lang racket
-(requirt 2htdp/image)
+(require 2htdp/image)
 ;; P24 [习题3]
 (define str "helloworld")
 (define i 5)
