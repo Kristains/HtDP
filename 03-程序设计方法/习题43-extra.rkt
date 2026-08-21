@@ -4,8 +4,8 @@
 (require 2htdp/universe)
 
 ;; 测试函数
-;(check-expect (render 50) (place-image CAR (car-position 50) Y_CAR BACKGROUND))
-;(check-expect (render 200) (place-image CAR (car-position 200) Y_CAR BACKGROUND))
+(check-expect (render 50) (place-image CAR (car-x-position 50) (car-y-position 50) BACKGROUND))
+(check-expect (render 200) (place-image CAR (car-x-position 200) (car-y-position 200) BACKGROUND))
 
 (check-expect (clock-tick-handler 20) (+ 20 1))
 (check-expect (clock-tick-handler 78) (+ 78 1))
