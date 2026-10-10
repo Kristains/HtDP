@@ -104,7 +104,7 @@
 
 ; VCat KeyEvent -> VCat
 ; 如果给定的 key 是 "down" 或者是 "up"
-; 执行相应的 increase-score 函数, 用以提升或下降猫的快乐指数
+; 执行相应的 increase-score 函数, 用以提升猫的快乐指数
 (check-expect (key-handler VCAT "down")
               (happy-increase-score VCAT HAPPY-INCREASE_DOWN))
 (check-expect (key-handler (make-VCat CAT1 0 (+ 20 HAPPY-MAX_HEIGHT)) "up")
@@ -136,20 +136,16 @@
         (make-VCat (VCat-pic vc)
                    (VCat-pos-x vc)
                    (+ (VCat-happy-num vc) (/ (VCat-happy-num vc) add)))))
-
-; VCat -> Boolean
-; 当猫的快乐指数为 0 就停止程序
-(check-expect (end? VCAT) #false)
-(check-expect (end? (make-VCat CAT1 50 0)) #true)
-(define (end? vc)
-  (= (VCat-happy-num vc) 0))
-  
+ 
 ; VCat -> VCat
-; 从猫的初始状态(x坐标为 0,快乐指数为 100)启动程序
+; 从猫的初始状态启动程序
 (define (happy-cat vc)
   (big-bang vc
     [to-draw render]
     [on-tick clock-tick-handler 0.2]
     [on-key key-handler]
-    [stop-when end?]
     ))
+
+;; Application
+
+(happy-cat VCAT-START)
