@@ -12,8 +12,8 @@
 (define STAND "stand")
 (define WALK "walk")
 
-(define STOP-PIC .)
-(define WALK-PIC .)
+(define STOP-PIC (bitmap ./images/stop.png))
+(define WALK-PIC (bitmap ./images/walk.png))
 
 (define SCENE-STATE-WIDTH (* 1.5 (image-width STOP-PIC)))
 (define SCENE-STATE-HEIGHT (* 1.5 (image-height STOP-PIC)))

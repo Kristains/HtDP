@@ -37,16 +37,16 @@
 ;; 表示一个被按下的按键,该按键会触发某个操作
 ;; 改变世界状态
 
-(define CAT1 .)
-(define CAT2 .)
-(define CAT3 .)
+(define CAT1 (bitmap ./images/cat1.png))
+(define CAT2 (bitmap ./images/cat2.png))
+(define CAT3 (bitmap ./images/cat3.png))
 (define CAT-WIDTH (image-width CAT1))
 (define CAT-HEIGHT (image-height CAT1))
 (define CAT-Y (- SCENE-HEIGHT (/ CAT-HEIGHT 2)))
 (define CAT-SPEED 3)
 
-(define CHAM1 .)
-(define CHAM2 .)
+(define CHAM1 (bitmap ./images/cham1.png))
+(define CHAM2 (bitmap ./images/cham2.png))
 (define CHAM-WIDTH (image-width CHAM1))
 (define CHAM-HEIGHT (image-height CHAM1))
 (define CHAM-Y (- SCENE-HEIGHT (/ CHAM-HEIGHT 2) 1))
