@@ -1,7 +1,6 @@
 ;; The first three lines of this file were inserted by DrRacket. They record metadata
 ;; about the language level of this file in a form that our tools can easily process.
 #reader(lib "htdp-beginner-reader.ss" "lang")((modname 习题106) (read-case-sensitive #t) (teachpacks ((lib "image.rkt" "teachpack" "2htdp") (lib "universe.rkt" "teachpack" "2htdp"))) (htdp-settings #(#t constructor repeating-decimal #f #t none #f ((lib "image.rkt" "teachpack" "2htdp") (lib "universe.rkt" "teachpack" "2htdp")) #f)))
-
 ;; Definition
 
 (define SCENE-WIDTH 400)
@@ -120,6 +119,7 @@
     [to-draw render]
     [on-tick tick-handler]
     [on-key key-handler]
+    [check-with vanimal?] ; 添加 114 题解答
     [stop-when end?]))
 
 ; VAnimal -> Image
@@ -323,6 +323,14 @@
       HAPPY-MAX_HEIGHT
       (+ (animal-happy va) add)))
 
+;; Any -> Boolean
+;; 检查是否为 vanimal 集合的元素
+(check-expect (vanimal? (make-VCat 20 100)) #true)
+(check-expect (vanimal? (make-VCham RED 30 100)) #true)
+(check-expect (vanimal? (make-posn 20 100)) #false)
+(check-expect (vanimal? "a") #false)
+(define (vanimal? v)
+  (or (VCat? v) (VCham? v)))
 
 ; VAnimal -> Boolean
 ; 当动物的快乐指数为 0 就停止程序
